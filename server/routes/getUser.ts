@@ -25,5 +25,7 @@ export async function GetUser(fastify: FastifyInstance) {
         } catch (error) {
             throw error
         }
+
+        return reply.status(201).send()
     })
 }

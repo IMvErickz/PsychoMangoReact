@@ -20,7 +20,7 @@ export function Register() {
     const [lastName, setlastName] = useState('')
     const [email, setUserEmail] = useState('')
     const [password, setUserPassword] = useState('')
-
+console.log(name)
     
     async function SetUser(event: FormEvent) {
 

@@ -1,6 +1,6 @@
 import  axios  from "axios";
 
 export const api = axios.create({
-    baseURL: "https://us-east.connect.psdb.cloud:3838"
+    baseURL: "https://psychoserver-imverickz.vercel.app"
 })
 //us-east.connect.psdb.cloud

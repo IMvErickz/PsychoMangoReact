@@ -19,8 +19,10 @@ export function NavBar() {
     })
 
     return (
-        <nav className="flex flex-row items-center justify-start w-full bg-backgroundNavbar">
-            <PsychoLogo />
+        <nav className="flex flex-row items-center justify-center w-full bg-backgroundNavbar gap-x-48">
+            
+                <PsychoLogo />
+            
             <Input
                 text="Pesquisar"
                 className="w-96 bg-[#535353] h-16 rounded-lg placeholder:font-bold text-white"
