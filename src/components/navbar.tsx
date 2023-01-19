@@ -1,22 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../lib/axios";
 import { PsychoLogo } from "../assets/incons/logo";
 import { Button } from "./button";
 import { Input } from "./input";
 
-interface NameProps{
+interface Filter{
     Name: string
 }
 
 export function NavBar() {
+    const [product, setProduct] = useState<Filter[]>([])
+    const [search, setSearch] = useState('')
+    const [filter, setFilter] = useState<Filter[]>([])
 
-    const [name, getName] = useState<NameProps[]>([])
-
-    api.get('/getUser')
+    api.get('/products')
         .then(function (response) {
-        getName(response.data.getUser)
+        setProduct(response.data.products)
     })
+
+    useEffect(() => {
+        if (search.length) {
+          setFilter(product.filter(repo => repo.Name.includes(search)))
+      }
+    }, [search])
 
     return (
         <nav className="flex flex-row items-center justify-center w-full bg-backgroundNavbar gap-x-48">
@@ -26,24 +33,13 @@ export function NavBar() {
             <Input
                 text="Pesquisar"
                 className="w-96 bg-[#535353] h-16 rounded-lg placeholder:font-bold text-white"
+                onChange={e => setSearch(e.target.value)}
             />
 
             <div className="flex flex-row items-center justify-center gap-x-4">
-                <Link to='/Register'><Button
-            text="Registrar"
-            /></Link>
-
             <Link to='/newProduct'><Button
             text="Novo Produto"
             /></Link>
-            </div>
-
-            <div>
-                {name.map(names => {
-                    return (
-                        <span className="text-white text-3xl">Olá {names.Name}</span>
-                    )
-                })}
             </div>
         </nav>
     )
