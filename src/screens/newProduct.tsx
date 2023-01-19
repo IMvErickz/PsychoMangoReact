@@ -62,9 +62,9 @@ export function NewProduct() {
             /> <br /> <br />
 
             <Input
-            text="Nome do produto(importação da imagem)"
+            text="Link da imagem"
             onChange={event => setProductImg(event.target.value)}
-            type='file'
+            type='text'
                         
             /> <br /> <br />
 
