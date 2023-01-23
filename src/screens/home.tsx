@@ -15,11 +15,6 @@ interface GetProductProps{
 
 export function Home() {
 
-    function setNameLocalStorage() {
-        const [name, setName] = useState('')
-        localStorage.setItem("Name", name)
-    }
-
     const [product, getProduct] = useState<GetProductProps[]>([])
 
     api.get('/products')
