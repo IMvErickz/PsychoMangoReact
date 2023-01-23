@@ -5,6 +5,7 @@ import { Register } from './screens/register'
 import { Home } from './screens/home'
 import { NewProduct } from './screens/newProduct'
 import { Login } from './screens/login'
+import { Info } from './screens/productInfo'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
         <Route path='/' element={<Home/> } />
         <Route path='/Register' element={<Register />} />
         <Route path='/newProduct' element={<NewProduct />} />
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/product' element={<Info/>} />
       </Routes>
     </BrowserRouter>
   )

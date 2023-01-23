@@ -2,6 +2,7 @@ import { FieldProducts } from "../components/fieldProducts";
 import { NavBar } from "../components/navbar";
 import { useState } from "react";
 import { api } from "../../lib/axios";
+import { Link } from "react-router-dom";
 
 import '../assets/ImgProducts/fireforce.png'
 
@@ -13,6 +14,11 @@ interface GetProductProps{
 }
 
 export function Home() {
+
+    function setNameLocalStorage() {
+        const [name, setName] = useState('')
+        localStorage.setItem("Name", name)
+    }
 
     const [product, getProduct] = useState<GetProductProps[]>([])
 
@@ -29,11 +35,13 @@ export function Home() {
             <div className="w-full flex flex-row items-center justify-center grid-rows-2 gap-4">
                 {product.map(products => {
                     return (
+                        <Link to='/product'>
                         <FieldProducts
                     imgSrc={products.img}
                     price={products.price}
                     productName={products.Name}
-                />
+                            />
+                        </Link>
                     )
                 })}
             </div>
