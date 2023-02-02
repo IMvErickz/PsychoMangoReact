@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { api } from '../../lib/axios'
 import ChawSaw from '../assets/ImgProducts/Chawsaw.png'
 import { Button } from '../components/button'
@@ -23,6 +24,13 @@ export function Info() {
 
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center bg-backgroudGeneral">
+            <div className='w-full flex flex-col items-start justify-start'>
+                <Link to='/'>
+                    <Button
+                text='Voltar'
+                />
+                </Link>
+            </div>
             {info.map(infos => {
                 return (
                <li key={infos.img}>
