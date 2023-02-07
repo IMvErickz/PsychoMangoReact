@@ -24,7 +24,7 @@ export function Home() {
 
 
     return (
-        <div className="bg-backgroudGeneral ">
+        <div className="bg-backgroudGeneral w-screen h-screen ">
             <nav><NavBar /></nav> <br />
             
             <div className="w-full items-center justify-center grid grid-rows-2 grid-flow-col gap-4">
