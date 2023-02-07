@@ -24,10 +24,10 @@ export function Home() {
 
 
     return (
-        <div className="bg-backgroudGeneral w-screen h-screen ">
+        <div className="bg-backgroudGeneral flex flex-col gap-4 ">
             <nav><NavBar /></nav> <br />
             
-            <div className="w-full items-center justify-center grid grid-rows-2 grid-flow-col gap-4">
+            <div className="w-full h-full items-center justify-center grid grid-rows-2 grid-flow-col gap-4">
                 {product.map(products => {
                     return (
                         <Link to='/product'>
