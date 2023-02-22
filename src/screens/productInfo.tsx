@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 import { api } from '../../lib/axios'
 import ChawSaw from '../assets/ImgProducts/Chawsaw.png'
@@ -15,11 +16,10 @@ export function Info() {
 
     let localName = localStorage.getItem('Name')
 
-    const [info, setInfo] = useState<InfoProps[]>([])
+    const {data} = useQuery<InfoProps[]>('Products', async () => {
+        const response = await api.get(`/products/${localName}`)
 
-    api.get(`/products/${localName}`)
-        .then(function (response) {
-        setInfo(response.data.products)
+        return response.data.products
     })
 
     return (
@@ -31,7 +31,7 @@ export function Info() {
                 />
                 </Link>
             </div>
-            {info.map(infos => {
+            {data?.map(infos => {
                 return (
                <li key={infos.img}>
                          <div className='w-full flex flex-row items-center justify-center gap-x-96'>
