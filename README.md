@@ -12,6 +12,7 @@
                 <li>Fastify</li>
                 <li>Prisma ORM</li>
                 <li>MySql</li>
+                <li>React-query(lib)</li>
     </ul>
 </p>
 
