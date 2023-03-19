@@ -16,18 +16,18 @@ export function Info() {
 
     let localName = localStorage.getItem('Systemoutquery')
 
-    const {data} = useQuery<InfoProps[]>('Products', async () => {
-        const response = await api.get(`/products/${localName}`)
+    // const {data} = useQuery<InfoProps[]>('Products', async () => {
+    //     const response = await api.get(`/products/${localName}`)
 
-        return response.data.products
-    })
-
-    // const [product, setProduct] = useState<InfoProps[]>([])
-
-    // api.get(`/products/${localName}`)
-    //     .then(function (response) {
-    //     setProduct(response.data.products)
+    //     return response.data.products
     // })
+
+    const [product, setProduct] = useState<InfoProps[]>([])
+
+    api.get(`/products/${localName}`)
+        .then(function (response) {
+        setProduct(response.data.products)
+    })
 
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center bg-backgroudGeneral">
@@ -38,7 +38,7 @@ export function Info() {
                 />
                 </Link>
             </div>
-            {data?.map(infos => {
+            {product.map(infos => {
                 return (
                <li key={infos.img}>
                          <div className='w-full flex flex-row items-center justify-center gap-x-96'>
