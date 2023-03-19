@@ -5,12 +5,13 @@ interface FieldProps{
     imgSrc: string
     productName: string
     price: string
+    id: string
 }
 
 export function FieldProducts(props: FieldProps) {
 
     function setNameLocalStorage() {
-        localStorage.setItem('Name', props.productName)
+        localStorage.setItem('Systemoutquery', props.id)
     }
 
     return (
@@ -20,7 +21,8 @@ export function FieldProducts(props: FieldProps) {
                 <img src={props.imgSrc} alt="" className='w-48'/>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <span className="text-white text-2xl font-bold name">{props.productName}</span>
+                    <span className="text-white text-2xl font-bold name">{props.productName}</span>
+                    <span hidden>{props.id}</span>
             </div>
             <div className="flex flex-row items-center justify-center">
                 <span className="text-white text-2xl font-bold">R$ {props.price}</span>

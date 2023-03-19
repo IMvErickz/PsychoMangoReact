@@ -4,9 +4,15 @@ import { Button } from "../components/button";
 import { Input } from "../components/input";
 import { PsychoLogo } from "../assets/incons/logo";
 
+interface UserProps{
+    email: string
+}
+
 export function Login() {
 
     const [email, getEmail] = useState('')
+    const [password, getPassword] = useState('')
+    const [user, getUser] = useState([])
 
     api.get('/getUser')
         .then(function (response) {

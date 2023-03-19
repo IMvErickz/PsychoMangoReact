@@ -14,13 +14,20 @@ interface InfoProps{
 
 export function Info() {
 
-    let localName = localStorage.getItem('Name')
+    let localName = localStorage.getItem('Systemoutquery')
 
     const {data} = useQuery<InfoProps[]>('Products', async () => {
         const response = await api.get(`/products/${localName}`)
 
         return response.data.products
     })
+
+    // const [product, setProduct] = useState<InfoProps[]>([])
+
+    // api.get(`/products/${localName}`)
+    //     .then(function (response) {
+    //     setProduct(response.data.products)
+    // })
 
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center bg-backgroudGeneral">

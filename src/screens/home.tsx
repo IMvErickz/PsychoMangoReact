@@ -15,6 +15,7 @@ interface GetProductProps{
     description: string
     img: string
     price: string
+    id: string
 }
 
 export function Home() {
@@ -37,8 +38,8 @@ export function Home() {
                         <h1 className="text-6xl text-white font-bold">PsychoMango</h1>
                     </div>
         <div className="flex flex-row items-center justify-center gap-x-4">
-        <Link to='/newProduct'><Button
-        text="Novo Produto"
+        <Link to='/Login'><Button
+        text="Login"
         /></Link>
         </div>
     </nav>
@@ -51,7 +52,8 @@ export function Home() {
                         <FieldProducts
                     imgSrc={products.img}
                     price={products.price}
-                    productName={products.Name}
+                                productName={products.Name}
+                                id={products.id}
                             />
                         </Link>
                     )
