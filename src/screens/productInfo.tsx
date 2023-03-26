@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 import { api } from '../../lib/axios'
-import ChawSaw from '../assets/ImgProducts/Chawsaw.png'
 import { Button } from '../components/button'
 
 interface InfoProps{
